@@ -1,7 +1,7 @@
 {
   "name": "movie_api",
   "version": "1.0.0",
-  "description": "a movie web service that gives you detailed info on the movies, actors, directors, etc",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
