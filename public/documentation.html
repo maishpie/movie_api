@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Documentation</title>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Business Logic</th>
+        <th>URL/Parameters</th>
+        <th>HTTP Method</th>
+        <th>Request Body Data Format</th>
+        <th>Response Body Data Format</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Return a list of ALL movies to the user</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON Object holding data about all movies</td>
+      </tr>
+      <tr>
+        <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
+        <td>/movies/[Title]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>"A JSON Object holding data about a single movie, example: {
+    ""Title"": ""xyz"",
+    ""Description"": ""Loren Ipsum."",
+    ""Genre"": {
+        ""Name"": ""Comedy"",
+        ""Description"": ""xyz""
+    },
+    ""Director"": {
+        ""Name"": ""Lorem Ipsum"",
+        ""Bio"": ""xyz"",
+        ""Birth"": ""April 21, 1970""
+    },
+    ""ImageUrl"": ""url.jpeg"",
+    ""Featured"": false
+}"</td>
+      </tr>
+      <tr>
+        <td>Return data about a genre (description) by name/title (e.g., “Thriller”)</td>
+        <td>/movies/genre/[Genre]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>"A JSON Object holding data about a specific genre, example: {
+    ""Name"": ""Drama"",
+    ""Description"": ""drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone.""
+}"</td>
+      </tr>
+      <tr>
+        <td>Return data about a director (bio, birth year, death year) by name</td>
+        <td>/movies/directors/[Name]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>"A JSON Object holding data about a specific director, example: {
+    ""Name"": ""Alice Wu"",
+    ""Bio"": ""Loren Ipsum"",
+    ""Birth"": ""April 21, 1970""
+}"</td>
+      </tr>
+      <tr>
+        <td>Allow new users to register</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>"A JSON Object structured like:  {
+    ""name"" : """",
+    ""favoriteMovies"" : [ ]
+}"</td>
+        <td>"A JSON Object holding this new user's data, including generating a unique id, example: {
+    ""name"": ""Lisa"",
+    ""favoriteMovies"": [ ],
+    ""id"": ""32b327""
+}"</td>
+      </tr>
+      <tr>
+        <td>Allow users to update their user info (username)</td>
+        <td>/users/[ID]</td>
+        <td>PUT</td>
+        <td>A JSON Object with the updated name, like: {"name": "Rylie"}</td>
+        <td>"A JSON Object holding the user's updated data, example: {
+    ""id"": 2,
+    ""name"": ""Rylie"",
+    ""favoriteMovies"": []
+}"</td>
+      </tr>
+      <tr>
+        <td>Allow users to add a movie to their list of favorites</td>
+        <td>/users/[ID]/[Title]</td>
+        <td>POST</td>
+        <td>None</td>
+        <td>A text message confirming that the movie has been added</td>
+      </tr>
+      <tr>
+        <td>Allow users to remove a movie from their list of favorites</td>
+        <td>/users/[ID]/[Title]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message confirming that the movie has been removed</td>
+      </tr>
+      <tr>
+        <td>Allow existing users to deregister</td>
+        <td>/users/[ID]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message confirming that the user has been deleted</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  
+  <script src="script.js"></script>
+
+</body>
+
+</html>
